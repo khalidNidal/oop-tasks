@@ -1,29 +1,28 @@
-// Main.java
+package payments;
 
-class BankAccount {
-
+public class BankAccount {
     private double balance;
-
-    public BankAccount(double b) {
-        this.balance = b > 0 ? b : 0;
+    public BankAccount(double i) {
+        this.balance = i > 0 ? i : 0;
     }
-
     public double getBalance() {
         return balance;
     }
-
-
     public boolean withdraw(double amount) {
         if (amount <= 0) {
             return false;
         }
         if (amount > balance) {
-            // prevent overdrawing
-            System.out.println("Withdrawal denied: insufficient funds.");
+            System.out.println("withdrawal denied ,insufficient funds.");
             return false;
         }
         balance -= amount;
         return true;
     }
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "b=" + balance +
+                '}';
+    }
 }
-
